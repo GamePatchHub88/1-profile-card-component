@@ -1,0 +1,188 @@
+:root {
+  --color-white: #fff;
+  --color-grey: #c4c4c4;
+}
+
+/* CSS Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.container {
+  background-color: #e5e5f7;
+  /* opacity: 0.8; */
+  background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+  background-size: 10px 10px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  border-radius: 2rem;
+  min-width: 35rem;
+  overflow: hidden;
+  background-color: var(--color-white);
+  /* padding: 5rem; */
+  box-shadow: 0 0 1rem rgba(0, 0, 0);
+  position: relative;
+}
+
+.lights{
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+}
+.bulb-odd{
+  animation: party 0.3s infinite alternate;
+}
+.bulb-even{
+  animation: party 0.6s infinite alternate-reverse;
+}
+@keyframes party {
+  from{
+    fill: #ff0000;
+  }
+  to{
+    fill: #fff500;
+  }
+}
+
+.container:has(.light-input:checked) .lights{
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
+
+.lights-control{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  top: 2rem;
+}
+.light-label{
+  width: 4.2rem;
+  height: 2.2rem;
+  border-radius: 1.5rem;
+  background-color: #000;
+  cursor: pointer;
+  transition: background-color 0.6s ;
+  padding: 0.3rem 0.4rem;
+}
+.light-label::after{
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  transition: 0.5s;
+}
+.light-input{
+  display: none;
+}
+.light-input:checked + .light-label::after{
+  transform: translateX(2.1rem);
+  background-color: green;
+}
+.light-input:checked + .light-label{
+  background-color: #fff;
+}
+
+
+
+
+
+.top {
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background-image:
+    repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px),
+    repeating-linear-gradient(#444cf755, #444cf7);
+  height: 10rem;
+}
+.pic{
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+}
+
+.middle{
+  margin: 0 auto;
+  text-align: center;
+  margin-top: -6rem;
+  z-index: 1;
+}
+.title{
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.profession{
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+.icon{
+  width: 3rem;
+  height: 3rem;
+}
+.username{
+  font-size: 1.5rem;
+}
+.bottom{
+  display: flex;
+  margin-top: 3rem;
+  border-top: 0.1rem solid var(--color-grey);
+}
+.column{
+  padding: 1.8rem 1.5rem;
+  flex: 1;
+  text-align: center;
+}
+.column:nth-child(2){
+  border-left: 0.1rem solid var(--color-grey);
+}
